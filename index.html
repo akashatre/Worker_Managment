@@ -4,87 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Worker Management System</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <header class="header">
-            <h1>Worker Management System</h1>
-        </header>
-        <nav class="tabs">
+        <h1 class="text-3xl font-bold mb-6">Worker Management System</h1>
+        <div class="tabs">
             <button class="tab active" data-tab="workers">Workers</button>
             <button class="tab" data-tab="attendance">Attendance</button>
-        </nav>
-        <main>
-            <section id="workers" class="tab-content active">
-                <div class="card">
-                    <h2>Add New Worker</h2>
-                    <form id="addWorkerForm">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="mobile">Mobile Number</label>
-                            <input type="tel" id="mobile" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="joinDate">Join Date</label>
-                            <input type="date" id="joinDate" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Add Worker</button>
-                    </form>
-                </div>
-                <div class="card">
-                    <h2>Worker List</h2>
-                    <div class="table-responsive">
-                        <table id="workerList">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Mobile Number</th>
-                                    <th>Join Date</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
+        </div>
+        <div id="workers" class="tab-content active">
+            <div class="card">
+                <h2 class="text-xl font-bold mb-4">Add New Worker</h2>
+                <form id="addWorkerForm" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input type="text" id="name" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="mobile" class="block text-sm font-medium text-gray-700">Mobile Number</label>
+                        <input type="tel" id="mobile" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="joinDate" class="block text-sm font-medium text-gray-700">Join Date</label>
+                        <input type="date" id="joinDate" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Add Worker</button>
+                </form>
+            </div>
+            <div class="card mt-6">
+                <h2 class="text-xl font-bold mb-4">Worker List</h2>
+                <table id="workerList" class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mobile Number</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Join Date</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200"></tbody>
+                </table>
+            </div>
+        </div>
+        <div id="attendance" class="tab-content">
+            <div class="card">
+                <h2 class="text-xl font-bold mb-4">Attendance Tracker</h2>
+                <div class="flex space-x-4 mb-4">
+                    <div>
+                        <label for="attendanceMonth" class="block text-sm font-medium text-gray-700">Select Month</label>
+                        <input type="month" id="attendanceMonth" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="defaultWage" class="block text-sm font-medium text-gray-700">Default Daily Wage</label>
+                        <input type="number" id="defaultWage" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="Enter default wage">
                     </div>
                 </div>
-            </section>
-            <section id="attendance" class="tab-content">
-                <div class="card">
-                    <h2>Attendance Tracker</h2>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="attendanceMonth">Select Month</label>
-                            <input type="month" id="attendanceMonth">
-                        </div>
-                        <div class="form-group">
-                            <label for="defaultWage">Default Daily Wage</label>
-                            <input type="number" id="defaultWage" placeholder="Enter default wage">
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-                        <table id="attendanceTable">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
+                <div class="overflow-x-auto">
+                    <table id="attendanceTable" class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200"></tbody>
+                    </table>
                 </div>
-            </section>
-        </main>
+            </div>
+        </div>
     </div>
 
     <div id="workerDetailsModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Worker Details</h2>
+            <h2 class="text-xl font-bold mb-4">Worker Details</h2>
             <div id="workerDetailsContent"></div>
         </div>
     </div>
@@ -92,21 +85,21 @@
     <div id="editWorkerModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Edit Worker</h2>
-            <form id="editWorkerForm">
-                <div class="form-group">
-                    <label for="editName">Name</label>
-                    <input type="text" id="editName" required>
+            <h2 class="text-xl font-bold mb-4">Edit Worker</h2>
+            <form id="editWorkerForm" class="space-y-4">
+                <div>
+                    <label for="editName" class="block text-sm font-medium text-gray-700">Name</label>
+                    <input type="text" id="editName" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                 </div>
-                <div class="form-group">
-                    <label for="editMobile">Mobile Number</label>
-                    <input type="tel" id="editMobile" required>
+                <div>
+                    <label for="editMobile" class="block text-sm font-medium text-gray-700">Mobile Number</label>
+                    <input type="tel" id="editMobile" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                 </div>
-                <div class="form-group">
-                    <label for="editJoinDate">Join Date</label>
-                    <input type="date" id="editJoinDate" required>
+                <div>
+                    <label for="editJoinDate" class="block text-sm font-medium text-gray-700">Join Date</label>
+                    <input type="date" id="editJoinDate" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                 </div>
-                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Save Changes</button>
             </form>
         </div>
     </div>
@@ -114,17 +107,17 @@
     <div id="addAdvanceModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Add Advance Payment</h2>
-            <form id="addAdvanceForm">
-                <div class="form-group">
-                    <label for="advanceAmount">Amount</label>
-                    <input type="number" id="advanceAmount" required>
+            <h2 class="text-xl font-bold mb-4">Add Advance Payment</h2>
+            <form id="addAdvanceForm" class="space-y-4">
+                <div>
+                    <label for="advanceAmount" class="block text-sm font-medium text-gray-700">Amount</label>
+                    <input type="number" id="advanceAmount" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                 </div>
-                <div class="form-group">
-                    <label for="advanceDate">Date</label>
-                    <input type="date" id="advanceDate" required>
+                <div>
+                    <label for="advanceDate" class="block text-sm font-medium text-gray-700">Date</label>
+                    <input type="date" id="advanceDate" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                 </div>
-                <button type="submit" class="btn btn-primary">Add Advance</button>
+                <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Add Advance</button>
             </form>
         </div>
     </div>
