@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Worker Management System</h1>
+        </header>
+        <nav class="tabs">
+            <button class="tab active" data-tab="workers">Workers</button>
+            <button class="tab" data-tab="attendance">Attendance</button>
+        </nav>
+        <main>
+            <section id="workers" class="tab-content active">
+                <div class="card">
+                    <h2>Add New Worker</h2>
+                    <form id="addWorkerForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number</label>
+                            <input type="tel" id="mobile" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="joinDate">Join Date</label>
+                            <input type="date" id="joinDate" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Worker</button>
+                    </form>
+                </div>
+                <div class="card">
+                    <h2>Worker List</h2>
+                    <div class="table-responsive">
+                        <table id="workerList">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Mobile Number</th>
+                                    <th>Join Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <section id="attendance" class="tab-content">
+                <div class="card">
+                    <h2>Attendance Tracker</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="attendanceMonth">Select Month</label>
+                            <input type="month" id="attendanceMonth">
+                        </div>
+                        <div class="form-group">
+                            <label for="defaultWage">Default Daily Wage</label>
+                            <input type="number" id="defaultWage" placeholder="Enter default wage">
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="attendanceTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="workerDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Worker Details</h2>
+            <div id="workerDetailsContent"></div>
+        </div>
+    </div>
+
+    <div id="editWorkerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Worker</h2>
+            <form id="editWorkerForm">
+                <div class="form-group">
+                    <label for="editName">Name</label>
+                    <input type="text" id="editName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editMobile">Mobile Number</label>
+                    <input type="tel" id="editMobile" required>
+                </div>
+                <div class="form-group">
+                    <label for="editJoinDate">Join Date</label>
+                    <input type="date" id="editJoinDate" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="addAdvanceModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add Advance Payment</h2>
+            <form id="addAdvanceForm">
+                <div class="form-group">
+                    <label for="advanceAmount">Amount</label>
+                    <input type="number" id="advanceAmount" required>
+                </div>
+                <div class="form-group">
+                    <label for="advanceDate">Date</label>
+                    <input type="date" id="advanceDate" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Advance</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
