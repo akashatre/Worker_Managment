@@ -57,7 +57,7 @@ function viewWorkerDetails(id) {
         <p>Half-day: ${attendanceSummary['half-day']}</p>
         <p>Total Payment: ${totalPayment}</p>
         <p>Total Advance: ${totalAdvance}</p>
-        <p>Balance: ${totalPayment - totalAdvance}</p>
+       
         <h3>Advance Payments</h3>
         <table>
             <thead>
